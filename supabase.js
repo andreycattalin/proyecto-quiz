@@ -10,8 +10,6 @@ async function loadDatabase() {
 
     allQuestions = data
 
-    document.getElementById("total").innerHTML = "Pregunta " + (currentQuestion + 1) + " de " + data.length
-
     setCurrentQuestion()
 }
 
@@ -20,8 +18,8 @@ function setCurrentQuestion() {
     document.getElementById("title").innerHTML = allQuestions[currentQuestion].question
 
     var result = ""
-    allQuestions[currentQuestion].answers.forEach(element => {
-        let myAnswer = '<button class="btn btn-outline-primary" type="button">'+element+'</button>'
+    allQuestions[currentQuestion].answers.forEach((element, index) => {
+        let myAnswer = '<button onclick="checkAnswer('+index+')" class="btn btn-outline-primary" type="button">'+element+'</button>'
         result = result + myAnswer
 
         console.log("DALE", result)
@@ -29,6 +27,16 @@ function setCurrentQuestion() {
 
     document.getElementById("answers").innerHTML = result
 
+    document.getElementById("total").innerHTML = "Pregunta " + (currentQuestion + 1) + " de " + allQuestions.length
+}
+
+function nextQuestion() {
+    currentQuestion += 1
+    setCurrentQuestion()
+}
+
+function checkAnswer(pos) {
+    console.log("Comprobamos posicion", pos)
 }
 
 loadDatabase();
