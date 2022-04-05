@@ -19,7 +19,7 @@ function setCurrentQuestion() {
 
     var result = ""
     allQuestions[currentQuestion].answers.forEach((element, index) => {
-        let myAnswer = '<button onclick="checkAnswer('+index+')" class="btn btn-outline-primary" type="button">'+element+'</button>'
+        let myAnswer = '<button id="btn-'+index+'" onclick="checkAnswer('+index+')" class="btn btn-outline-primary" type="button">'+element+'</button>'
         result = result + myAnswer
 
         console.log("DALE", result)
@@ -36,7 +36,17 @@ function nextQuestion() {
 }
 
 function checkAnswer(pos) {
-    console.log("Comprobamos posicion", pos)
+    
+    if (pos == allQuestions[currentQuestion].correct) {
+        console.log("Respuesta correcta")
+        document.getElementById("btn-"+ pos).classList.remove('btn-outline-primary')
+        document.getElementById("btn-"+ pos).classList.add('btn-success')
+    } else {
+        console.error("Respuesta incorrecta")
+        document.getElementById("btn-"+ pos).classList.remove('btn-outline-primary')
+        document.getElementById("btn-"+ pos).classList.add('btn-danger')
+    }
+
 }
 
 loadDatabase();
