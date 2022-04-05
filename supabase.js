@@ -45,6 +45,9 @@ function checkAnswer(pos) {
         console.error("Respuesta incorrecta")
         document.getElementById("btn-"+ pos).classList.remove('btn-outline-primary')
         document.getElementById("btn-"+ pos).classList.add('btn-danger')
+
+        document.getElementById("btn-"+ allQuestions[currentQuestion].correct).classList.remove('btn-outline-primary')
+        document.getElementById("btn-"+ allQuestions[currentQuestion].correct).classList.add('btn-success')
     }
 
 }
