@@ -5,3 +5,12 @@ body {
 .quiz-box {
     background-color: #fff;
 }
+
+.app-title {
+    font-size: 16px;
+    color: #3500A2;
+}
+
+.quiz-box h1 {
+    font-size:21px;
+}
