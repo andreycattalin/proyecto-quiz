@@ -14,3 +14,7 @@ body {
 .quiz-box h1 {
     font-size:21px;
 }
+
+.total-questions {
+    margin: 0px;
+}
